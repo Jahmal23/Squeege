@@ -1,4 +1,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-# gem "rails"
+require 'rubygems'
+require 'bundler/setup'
+
+#gem "rails"
