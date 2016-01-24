@@ -6,11 +6,11 @@ require 'open-uri'
 
 class Loader
 
-    BASE_WHITE_PAGES_URL = "http://www.whitepages.com/"
+    @@BASE_WHITE_PAGES_URL = "http://www.whitepages.com/"
 
     def get_content
 
-      page = Nokogiri::HTML(open(BASE_WHITE_PAGES_URL))
+      page = Nokogiri::HTML(open(@@BASE_WHITE_PAGES_URL))
 
       #'<html><body>junk</body></html>'
 
