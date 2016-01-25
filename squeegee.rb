@@ -1,5 +1,6 @@
 require 'sinatra'
-require_relative 'Lib/loader'
+require_relative 'Lib/home_page'
+
 
 get '/' do
   'squeegee active!'
@@ -7,6 +8,8 @@ end
 
 
 get '/squeegee' do
-  load = Loader.new
-  load.get_content
+
+  home = Home_Page.new
+  home.perform_search('Oliveira','30062')
+
 end
