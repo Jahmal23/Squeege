@@ -10,6 +10,6 @@ end
 get '/squeegee' do
 
   home = Home_Page.new
-  home.perform_search('Oliveira','30062')
+  home.perform_search(Session_Boss.new.capy_session,'Oliveira','30062')
 
 end

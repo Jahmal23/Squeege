@@ -1,11 +1,12 @@
 
+#page object that represents home page navigation
 class Home_Page
 
-  @@BASE_WHITE_PAGES_URL = "http://www.whitepages.com/"
+  BASE_WHITE_PAGES_URL = "http://www.whitepages.com/"
 
   def perform_search(capy_session, name, zip_code)
 
-      capy_session.visit(@@BASE_WHITE_PAGES_URL)
+      capy_session.visit(BASE_WHITE_PAGES_URL)
 
       capy_session.within(:xpath, "//form[contains(@class, 'non-mobile')]") do
 
