@@ -1,6 +1,6 @@
 
-#Page object that represents navigating through a list of results
-class Results_Page
+# Page object that represents navigating through a list of results
+class ResultsPage
 
 
   def contains_exact_matches?(capy_session)
@@ -10,7 +10,7 @@ class Results_Page
       header = capy_session.first(:xpath, "//h1[contains(@class, 'serp-results')]")
 
       unless header.nil?
-        return (header.text.include? '30062') && (header.text.include? 'matches')
+        return (header.text.include? 'exact') && (header.text.include? 'matches')
       end
 
     end

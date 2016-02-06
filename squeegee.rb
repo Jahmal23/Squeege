@@ -9,7 +9,7 @@ end
 
 get '/squeegee' do
 
-  home = Home_Page.new
-  home.perform_search(Session_Boss.new.capy_session,'Oliveira','30062')
+  home = HomePage.new
+  home.perform_search(SessionBoss.new.capy_session,'Oliveira','30062')
 
 end

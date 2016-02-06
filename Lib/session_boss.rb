@@ -12,8 +12,8 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, options)
 end
 
-#Manages instances of Capybara
-class Session_Boss
+# Manages instances of Capybara
+class SessionBoss
 
   attr_reader :capy_session
 

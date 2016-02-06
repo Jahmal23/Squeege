@@ -7,7 +7,7 @@ describe 'Create capybara session' do
 
   it 'should have a valid session' do
 
-    sess = Session_Boss.new
+    sess = SessionBoss.new
 
     expect(sess.capy_session.nil?).to eq(false)
 
