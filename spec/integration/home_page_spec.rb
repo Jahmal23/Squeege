@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../Lib/home_page'
-require_relative '../Lib/session_boss'
+require_relative '../../Lib/home_page'
+require_relative '../../Lib/session_boss'
 
 describe 'White pages home page object' do
 

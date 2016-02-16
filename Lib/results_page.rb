@@ -17,6 +17,26 @@ class ResultsPage
 
     false
 
- end
+  end
+
+
+  def get_exact_match_links(capy_session, search_term)
+
+    cnt = 0
+
+    if !search_term.nil? && !capy_session.nil?
+
+      links = capy_session.all(:xpath, "//a[contains(@href, #{search_term})]")
+
+      unless links.nil?
+        cnt = links.length()
+        #links.each { |a| puts a.text }
+      end
+
+    end
+
+    cnt
+
+  end
 
 end
