@@ -2,6 +2,18 @@
 # Page object that represents navigating through a list of results
 class ResultsPage
 
+  attr_accessor :results_hrefs
+
+  # this is terrible, learn how to use xpath
+  def set_results_hrefs(capy_session)
+
+    unless capy_session.nil?
+
+      @results_hrefs = capy_session.all(:xpath, "//a[@href]")
+
+    end
+
+  end
 
   def contains_exact_matches?(capy_session)
 
@@ -26,11 +38,14 @@ class ResultsPage
 
     if !search_term.nil? && !capy_session.nil?
 
-      links = capy_session.all(:xpath, "//a[contains(@href, #{search_term})]")
+      #links = capy_session.all(:xpath, "//a[contains(@href, #{search_term})]")
+      links = capy_session.all(:xpath, "//a[@href]")
 
       unless links.nil?
+
+        links.each { |a| puts a[:href] }
+
         cnt = links.length()
-        #links.each { |a| puts a.text }
       end
 
     end

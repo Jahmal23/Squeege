@@ -23,7 +23,10 @@ describe 'Exact matches tester' do
 
     results = ResultsPage.new
 
-    matched_links = results.get_exact_match_links(capy_sess,'Oliveira')
+    matched_links = results.get_exact_match_links(capy_sess,'Jahmal')
+
+    puts "the count"
+    puts matched_links
 
     expect(matched_links).to be > 0
 
