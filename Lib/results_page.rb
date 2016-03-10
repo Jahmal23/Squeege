@@ -39,7 +39,9 @@ class ResultsPage
     if !search_term.nil? && !capy_session.nil?
 
       #links = capy_session.all(:xpath, "//a[contains(@href, #{search_term})]")
-      links = capy_session.all(:xpath, "//a[@href]")
+
+      links = capy_session.all('a')
+
 
       unless links.nil?
 

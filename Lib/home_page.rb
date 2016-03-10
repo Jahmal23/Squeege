@@ -7,7 +7,16 @@ class HomePage
   def perform_search(capy_session, name, zip_code)
     capy_session.visit(BASE_WHITE_PAGES_URL)
 
-    capy_session.within(:xpath, "//form[contains(@class, 'non-mobile')]") do
+
+    form_path = "//form[contains(@class, 'non-mobile')]"
+    begin
+      capy_session.find(:xpath, form_path)
+    rescue
+      raise Exception.new("Could not find the main search form!!")
+    end
+
+    #we can find the form, so let's look for the input fields within.
+    capy_session.within(:xpath, form_path) do
 
       capy_session.fill_in 'who', :with => name
       capy_session.fill_in 'where', :with => zip_code

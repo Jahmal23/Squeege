@@ -9,11 +9,11 @@ describe 'Exact matches tester' do
 
   it 'should find exact matches' do
 
-    #capy_sess.visit("#{HomePage::BASE_WHITE_PAGES_URL}/name/Oliveira/30062" )
+    capy_sess.visit("#{HomePage::BASE_WHITE_PAGES_URL}/name/Oliveira/30062" )
 
-    #results = ResultsPage.new
+    results = ResultsPage.new
 
-    #expect(results.contains_exact_matches?(capy_sess)).to eq(true)
+    expect(results.contains_exact_matches?(capy_sess)).to eq(true)
 
   end
 
@@ -23,9 +23,8 @@ describe 'Exact matches tester' do
 
     results = ResultsPage.new
 
-    matched_links = results.get_exact_match_links(capy_sess,'Jahmal')
+    matched_links = results.get_exact_match_links(capy_sess,'Oliveira')
 
-    puts "the count"
     puts matched_links
 
     expect(matched_links).to be > 0
