@@ -5,10 +5,11 @@ class HomePage
   BASE_WHITE_PAGES_URL = 'http://www.whitepages.com/'.freeze
 
   def perform_search(capy_session, name, zip_code)
+
     capy_session.visit(BASE_WHITE_PAGES_URL)
 
+    form_path = "//div[contains(@class, 'header-wrapper')]"
 
-    form_path = "//form[contains(@class, 'non-mobile')]"
     begin
       capy_session.find(:xpath, form_path)
     rescue
@@ -25,7 +26,7 @@ class HomePage
 
       return capy_session.current_url
 
-    end
+      end
 
   end
 

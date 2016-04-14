@@ -17,14 +17,15 @@ describe 'White pages home page object' do
 
   end
 
-  #it 'should go to the results page' do
+  it 'should go to the results page' do
 
-   # home = HomePage.new
-    #current_url = home.perform_search(capy_sess,'Oliveira','30062')
+    home = HomePage.new
+    current_url = home.perform_search(capy_sess,'Oliveira','30062')
 
 
-    #expect(current_url.include? 'Oliveira').to eq(true)
-    #expect(current_url.include? '30062').to eq(true)
+    expect(current_url.include? 'Oliveira').to eq(true)
+    expect(current_url.include? '30062').to eq(true)
 
-  #end
+  end
+
 end

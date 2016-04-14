@@ -12,4 +12,5 @@ describe 'Create capybara session' do
     expect(sess.capy_session.nil?).to eq(false)
 
   end
+
 end
