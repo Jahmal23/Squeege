@@ -1,7 +1,5 @@
-
 # Page object that represents navigating through a list of results
 class ResultsPage
-
   attr_accessor :results_hrefs
 
   def contains_exact_matches?(capy_session)
