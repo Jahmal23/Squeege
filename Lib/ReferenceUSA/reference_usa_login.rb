@@ -1,22 +1,24 @@
+require_relative '../helpers/pauseable'
+
 class ReferenceUSALogin
-  BASE_URL = 'http://lalibcon.state.lib.la.us/'
+  include Pausable
+
+  BASE_URL = 'http://lalibcon.state.lib.la.us/redirect.php?illcode=s1no&database=refusa'
 
   def perform_login(capy_session, library_card_number)
-    capy_session.visit(BASE_URL)
+    capy_session.visit BASE_URL
 
-    form_path = "div#loginbox"
-    #button_path = "//button[contains(@class, 'new-search')]"
+    brief_pause
 
-    byebug
+    capy_session.fill_in 'barcode', with: ''
+    capy_session.find(:xpath, "//input[@id='barcode']").set(library_card_number)
 
-    # we can find the form, so let's look for the input fields within.
-    capy_session.within(:css, form_path) do
-      #capy_session.fill_in 'who', with: name
-      #capy_session.fill_in 'where', with: zip_code
+    brief_pause
 
-      #capy_session.find(:xpath, button_path).click
+    capy_session.click_button 'Log In'
 
-      return capy_session.current_url
-    end
+    brief_pause
+
+    return capy_session.current_url
   end
 end

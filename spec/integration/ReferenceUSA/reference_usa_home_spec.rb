@@ -10,8 +10,6 @@ describe 'Reference USA home page object' do
   it 'should perform a basic search' do
     home = ReferenceUSAHome.new
 
-    byebug
-
     current_url = home.perform_search(capy_sess, 'Oliveira', '30062')
 
     #expect(current_url.nil?).to eq(false)

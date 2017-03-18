@@ -10,13 +10,9 @@ describe 'Reference USA login object' do
   it 'should login' do
     login = ReferenceUSALogin.new
 
-    byebug
-
     current_url = login.perform_login(capy_sess, '22400011777915')
 
-    #expect(current_url.nil?).to eq(false)
-    #expect(current_url.include?('Oliveira')).to eq(true)
-    #expect(current_url.include?('30062')).to eq(true)
+    expect(current_url).to eq('http://www.referenceusa.com/?')
   end
 
   it 'should go to the results page' do
