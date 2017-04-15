@@ -5,7 +5,14 @@ class ReferenceUSALogin
 
   BASE_URL = 'http://lalibcon.state.lib.la.us/redirect.php?illcode=s1no&database=refusa'
 
+  def fresh_start(capy_session)
+    browser = capy_session.driver.browser
+    browser.clear_cookies
+  end
+
   def perform_login(capy_session, library_card_number)
+    #fresh_start(capy_session)
+
     capy_session.visit BASE_URL
 
     brief_pause
@@ -17,7 +24,7 @@ class ReferenceUSALogin
 
     capy_session.click_button 'Log In'
 
-    brief_pause
+    long_pause
 
     return capy_session.current_url
   end
