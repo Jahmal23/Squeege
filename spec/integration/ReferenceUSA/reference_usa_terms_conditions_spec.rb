@@ -13,12 +13,12 @@ describe 'Reference USA terms and conditions object' do
 
     login.perform_login(capy_sess, '22400011777915')
 
-
-    capy_sess.save_screenshot('screenshot.png')
-
     terms_conditions = ReferenceUSATermsConditions.new
 
-    terms_conditions.accept_terms_and_conditions(capy_sess)
+    current_url = terms_conditions.accept_terms_and_conditions(capy_sess)
+
+    byebug
+    expect(current_url).to eq("http://www.referenceusa.com/Home/Home")
   end
 
 end

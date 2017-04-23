@@ -4,14 +4,15 @@ class ReferenceUSALogin
   include Pausable
 
   BASE_URL = 'http://lalibcon.state.lib.la.us/redirect.php?illcode=s1no&database=refusa'
+  REDIRECT_URL = 'http://lalibcon.state.lib.la.us/redirect.php?illcode=s1jf&database=refusa'
 
   def fresh_start(capy_session)
-    browser = capy_session.driver.browser
-    browser.clear_cookies
+    capy_session.driver.clear_cookies
+    capy_session.driver.reset!
   end
 
   def perform_login(capy_session, library_card_number)
-    #fresh_start(capy_session)
+    fresh_start(capy_session)
 
     capy_session.visit BASE_URL
 
@@ -26,6 +27,13 @@ class ReferenceUSALogin
 
     long_pause
 
-    return capy_session.current_url
+    # force a redirect to the desired page since looking for the correct hyperlink
+    # proved challenging
+    capy_session.visit REDIRECT_URL
+
+    long_pause
+
+    capy_session.current_url
   end
+
 end
