@@ -11,13 +11,12 @@ describe 'Reference USA terms and conditions object' do
   it 'should accept terms and conditions' do
     login = ReferenceUSALogin.new
 
-    login.perform_login(capy_sess, '22400011777915')
+    login.perform_login(capy_sess, "22400011777915")
 
     terms_conditions = ReferenceUSATermsConditions.new
 
     current_url = terms_conditions.accept_terms_and_conditions(capy_sess)
 
-    byebug
     expect(current_url).to eq("http://www.referenceusa.com/Home/Home")
   end
 
