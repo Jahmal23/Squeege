@@ -5,16 +5,13 @@ require_relative '../helpers/pauseable'
 class ReferenceUSAHome
   include Pausable
 
-  SEARCH_URL = "http://www.referenceusa.com/UsWhitePages/Search/Quick/"
-  BASE_URL = "http://www.referenceusa.com/Home/Home"
+  SEARCH_URL = "http://www.referenceusa.com/UsWhitePages/Search/Quick/".freeze
+  BASE_URL = "http://www.referenceusa.com/Home/Home".freeze
 
   # At this point we are assumed to be logged in with a valid session
   def perform_search(capy_session, name, city, state)
-
-    byebug
-
     unless capy_session.current_url == BASE_URL
-      raise "Unexpected starting url #{capy_session.current_url} for home page"
+      fail "Unexpected starting url #{capy_session.current_url} for home page"
     end
 
     capy_session.visit(SEARCH_URL)
@@ -23,15 +20,16 @@ class ReferenceUSAHome
     capy_session.fill_in 'city', with: city
     capy_session.select(state, from: 'stateProvince')
 
-    form_path = "div#quickSearch"
-    button_path = "//button[contains(@class, 'new-search')]"
+    byebug
+
+    capy_session.click_link("View Results")
 
 
-    return capy_session.current_url
+    long_pause
 
+    capy_session.save_and_open_page
 
-
-
+    capy_session.current_url
   end
 
 end

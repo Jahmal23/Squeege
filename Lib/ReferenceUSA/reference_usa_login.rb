@@ -3,8 +3,8 @@ require_relative '../helpers/pauseable'
 class ReferenceUSALogin
   include Pausable
 
-  BASE_URL = "http://lalibcon.state.lib.la.us/redirect.php?illcode=s1no&database=refusa"
-  REDIRECT_URL = "http://lalibcon.state.lib.la.us/redirect.php?illcode=s1jf&database=refusa"
+  BASE_URL = "http://lalibcon.state.lib.la.us/redirect.php?illcode=s1no&database=refusa".freeze
+  REDIRECT_URL = "http://lalibcon.state.lib.la.us/redirect.php?illcode=s1jf&database=refusa".freeze
 
   def fresh_start(capy_session)
     capy_session.driver.clear_cookies
@@ -27,8 +27,8 @@ class ReferenceUSALogin
 
     long_pause
 
-    # force a redirect to the desired page since looking for the correct hyperlink
-    # proved challenging
+    # force a redirect to the desired page since looking
+    # for the correct hyperlink proved challenging
     capy_session.visit REDIRECT_URL
 
     long_pause
