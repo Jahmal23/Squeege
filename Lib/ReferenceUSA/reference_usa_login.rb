@@ -16,8 +16,8 @@ class ReferenceUSALogin
 
     capy_session.visit BASE_URL
 
-    brief_pause
-
+    long_pause
+    
     capy_session.fill_in "barcode", with: ''
     capy_session.find(:xpath, "//input[@id='barcode']").set(library_card_number)
 

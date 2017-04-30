@@ -3,7 +3,7 @@ module Pausable
     start = Time.now.utc
 
     while true
-      if Time.now.utc > start + 8 # seconds
+      if Time.now.utc > start + 10 # seconds
         break
       end
     end
@@ -14,7 +14,7 @@ module Pausable
     start = Time.now.utc
 
     while true
-      if Time.now.utc > start + 12 # seconds
+      if Time.now.utc > start + 15 # seconds
         break
       end
     end
