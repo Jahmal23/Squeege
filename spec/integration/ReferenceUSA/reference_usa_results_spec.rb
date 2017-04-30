@@ -4,12 +4,13 @@ require 'byebug'
 require_relative '../../../Lib/ReferenceUSA/reference_usa_home'
 require_relative '../../../Lib/ReferenceUSA/reference_usa_login'
 require_relative '../../../Lib/ReferenceUSA/reference_usa_terms_conditions'
+require_relative '../../../Lib/ReferenceUSA/reference_usa_results'
 require_relative '../../../Lib/session_boss'
 
-describe "Reference USA home page object" do
+describe "Reference USA results page object" do
   let(:capy_sess) { SessionBoss.new.capy_session }
 
-  it "should perform a basic search" do
+  it "should comb through the results" do
     login = ReferenceUSALogin.new
 
     login.perform_login(capy_sess, "22400011777915")
@@ -20,9 +21,14 @@ describe "Reference USA home page object" do
 
     home = ReferenceUSAHome.new
 
-    current_url = home.perform_search(capy_sess, "Oliveira", "Marietta",  "Georgia")
+    home.perform_search(capy_sess, "Oliveira", "Marietta",  "Georgia")
 
-    expect(current_url.include?("http://www.referenceusa.com/UsWhitePages/Result/")).to be true
+    results = ReferenceUSAResults.new
+
+    results.scrape_results(capy_sess)
+
+    # list of people
+
   end
 
 end

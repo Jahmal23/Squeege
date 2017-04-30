@@ -24,7 +24,7 @@ module Pausable
     start = Time.now.utc
 
     while true
-      if Time.now.utc > start + 30 # seconds
+      if Time.now.utc > start + 60 # seconds
         break
       end
     end

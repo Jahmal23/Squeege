@@ -20,14 +20,10 @@ class ReferenceUSAHome
     capy_session.fill_in 'city', with: city
     capy_session.select(state, from: 'stateProvince')
 
-    byebug
 
     capy_session.click_link("View Results")
 
-
     long_pause
-
-    capy_session.save_and_open_page
 
     capy_session.current_url
   end
