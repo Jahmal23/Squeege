@@ -13,7 +13,8 @@ class ReferenceUSAResults
 
     capy_session.within_table("tblResults") do
 
-        capy_session.find_all("tr").each do |tr|
+      puts "found the results table"
+        capy_session.find_all("td").each do |tr|
 
           byebug
             v = 5

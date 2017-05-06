@@ -16,12 +16,15 @@ class ReferenceUSAHome
 
     capy_session.visit(SEARCH_URL)
 
+    puts "Main Ref Usa search page loaded.  Filling in person info."
+
     capy_session.fill_in 'lastName', with: name
     capy_session.fill_in 'city', with: city
     capy_session.select(state, from: 'stateProvince')
 
-
     capy_session.click_link("View Results")
+
+    puts "Clicked the View results button.  Waiting"
 
     long_pause
 

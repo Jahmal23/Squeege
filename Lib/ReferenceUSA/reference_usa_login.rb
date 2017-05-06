@@ -12,12 +12,15 @@ class ReferenceUSALogin
   end
 
   def perform_login(capy_session, library_card_number)
+    puts "Initializing..killing cookies"
     fresh_start(capy_session)
 
     capy_session.visit BASE_URL
 
     long_pause
-    
+
+
+    puts "Base page loaded. Adding in library card and logging in"
     capy_session.fill_in "barcode", with: ''
     capy_session.find(:xpath, "//input[@id='barcode']").set(library_card_number)
 
@@ -26,6 +29,8 @@ class ReferenceUSALogin
     capy_session.click_button "Log In"
 
     long_pause
+
+    puts "Logged in. Attempting direct redirect to Ref USA"
 
     # force a redirect to the desired page since looking
     # for the correct hyperlink proved challenging
