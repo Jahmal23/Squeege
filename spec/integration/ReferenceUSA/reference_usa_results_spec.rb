@@ -13,7 +13,7 @@ describe "Reference USA results page object" do
   it "should comb through the results" do
     login = ReferenceUSALogin.new
 
-    login.perform_login(capy_sess, "22400011777915")
+    login.perform_login(capy_sess, "22400008565125")  # "22400008565125"
 
     terms_conditions = ReferenceUSATermsConditions.new
 
