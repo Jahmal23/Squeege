@@ -16,6 +16,7 @@ class ReferenceUSATermsConditions
     super_long_pause
     super_long_pause
 
+
     capy_session.find_by_id("chkAgree").set(true)
 
     puts "Found and checked T&C agree checkbox.  Continuing"

@@ -11,16 +11,30 @@ class ReferenceUSAResults
       fail "Unexpected starting url #{capy_session.current_url} for results page"
     end
 
-    capy_session.within_table("tblResults") do
-
-      puts "found the results table"
-      capy_session.find_all("td").each do |tr|
-
-      end
-
-    end
-
+    grab_row_results(capy_session)
   end
 
+  private
 
+  def grab_row_results(capy_session)
+    rows = capy_session.all(:xpath, "//table[@id='tblResults']/tbody/tr")
+
+    index = 0
+    rows.each do |row|
+      puts row.text unless index == 0 # header row
+      index += 1
+    end
+
+    brief_pause
+
+    next_button = capy_session.first(:xpath, "//div[contains(@class, 'next button')]")
+
+    if next_button
+      next_button.click
+
+      brief_pause
+
+      return grab_row_results(capy_session)
+    end
+  end
 end

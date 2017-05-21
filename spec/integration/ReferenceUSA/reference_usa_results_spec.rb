@@ -21,7 +21,7 @@ describe "Reference USA results page object" do
 
     home = ReferenceUSAHome.new
 
-    home.perform_search(capy_sess, "Oliveira", "Marietta",  "Georgia")
+    home.perform_search(capy_sess, "Silva", "Astoria",  "New York")
 
     results = ReferenceUSAResults.new
 
