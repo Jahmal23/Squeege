@@ -5,11 +5,13 @@ class ReferenceUSAResults
   include Pausable
 
   BASE_URL = "http://www.referenceusa.com/UsWhitePages/Result/".freeze
+  HOME_URL = "http://www.referenceusa.com/Home/Home".freeze
 
   def scrape_results(capy_session)
     unless capy_session.current_url.include? BASE_URL
       puts "Unexpected starting url #{capy_session.current_url} for results page"
       puts "Likely no results were found for that name, whatever it was"
+      reset_search(capy_session)
       return
     end
 
@@ -51,6 +53,8 @@ class ReferenceUSAResults
     end
 
     puts "We are on page #{current_page} of #{num_pages} and apparently no more results to obtain. Finished."
+
+    reset_search(capy_session)
   end
 
   def get_num_pages(capy_session)
@@ -61,5 +65,11 @@ class ReferenceUSAResults
     num_pages = page_max.text.to_i unless page_max.nil?
 
     num_pages
+  end
+
+  def reset_search(capy_session)
+    puts "Going back to main home screen"
+    capy_session.visit(HOME_URL)
+    long_pause
   end
 end

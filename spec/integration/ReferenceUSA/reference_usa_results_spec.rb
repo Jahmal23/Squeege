@@ -5,6 +5,7 @@ require_relative '../../../Lib/ReferenceUSA/reference_usa_home'
 require_relative '../../../Lib/ReferenceUSA/reference_usa_login'
 require_relative '../../../Lib/ReferenceUSA/reference_usa_terms_conditions'
 require_relative '../../../Lib/ReferenceUSA/reference_usa_results'
+require_relative '../../../Lib/helpers/searchable_names'
 require_relative '../../../Lib/session_boss'
 
 describe "Reference USA results page object" do
@@ -21,14 +22,13 @@ describe "Reference USA results page object" do
 
     home = ReferenceUSAHome.new
 
-    home.perform_search(capy_sess, "Oliveira", "Marietta",  "Georgia")
+    SearchableNames.last_names.each do |name|
+      puts "SEARCHING #{name}"
+      home.perform_search(capy_sess, name, "Lafayette",  "Louisiana")
 
-    results = ReferenceUSAResults.new
+      results = ReferenceUSAResults.new
 
-    results.scrape_results(capy_sess)
-
-    # list of people
-
+      results.scrape_results(capy_sess)
+    end
   end
-
 end
