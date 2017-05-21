@@ -8,7 +8,9 @@ class ReferenceUSAResults
 
   def scrape_results(capy_session)
     unless capy_session.current_url.include? BASE_URL
-      fail "Unexpected starting url #{capy_session.current_url} for results page"
+      puts "Unexpected starting url #{capy_session.current_url} for results page"
+      puts "Likely no results were found for that name, whatever it was"
+      return
     end
 
     grab_row_results(capy_session)
@@ -16,25 +18,48 @@ class ReferenceUSAResults
 
   private
 
-  def grab_row_results(capy_session)
+  def grab_row_results(capy_session, current_page = 1)
+    puts "Grabbing results for page #{current_page}"
+
     rows = capy_session.all(:xpath, "//table[@id='tblResults']/tbody/tr")
 
     index = 0
     rows.each do |row|
-      puts row.text unless index == 0 # header row
+      puts row.text unless index == 0 # skip the table header row
       index += 1
     end
 
     brief_pause
 
-    next_button = capy_session.first(:xpath, "//div[contains(@class, 'next button')]")
+    num_pages = get_num_pages(capy_session)
 
-    if next_button
-      next_button.click
+    if current_page < num_pages
+      puts "We are on page #{current_page} of #{num_pages}.  Advancing to next page."
 
-      brief_pause
+      next_button = capy_session.first(:xpath, "//div[contains(@class, 'next button')]")
 
-      return grab_row_results(capy_session)
+      if next_button
+        puts "Found the 'next' button.  Clicking for next page."
+        next_button.click
+
+        brief_pause
+
+        return grab_row_results(capy_session, current_page + 1)
+      else
+        puts "Could not find the 'next' button!!! Can't get rest of results!"
+      end
     end
+
+    puts "We are on page #{current_page} of #{num_pages} and apparently no more results to obtain. Finished."
+  end
+
+  def get_num_pages(capy_session)
+    num_pages = 1
+
+    page_max = capy_session.first(:xpath, "//span[contains(@class, 'data-page-max')]")
+
+    num_pages = page_max.text.to_i unless page_max.nil?
+
+    num_pages
   end
 end
