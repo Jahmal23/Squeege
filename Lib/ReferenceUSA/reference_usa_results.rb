@@ -15,20 +15,24 @@ class ReferenceUSAResults
       return
     end
 
-    grab_row_results(capy_session)
+    handle_row_results(capy_session)
   end
 
   private
 
-  def grab_row_results(capy_session, current_page = 1)
+  def handle_row_results(capy_session, current_page = 1)
     puts "Grabbing results for page #{current_page}"
 
     rows = capy_session.all(:xpath, "//table[@id='tblResults']/tbody/tr")
 
-    index = 0
-    rows.each do |row|
-      puts row.text unless index == 0 # skip the table header row
-      index += 1
+    # write out the results
+    open('results.csv', 'a') do |f|
+      index = 0
+      rows.each do |row|
+        puts row.text unless index == 0
+        f.puts result_row_to_csv(row) unless index == 0 # skip the table header row
+        index += 1
+      end
     end
 
     brief_pause
@@ -46,7 +50,7 @@ class ReferenceUSAResults
 
         brief_pause
 
-        return grab_row_results(capy_session, current_page + 1)
+        return handle_row_results(capy_session, current_page + 1)
       else
         puts "Could not find the 'next' button!!! Can't get rest of results!"
       end
@@ -71,5 +75,27 @@ class ReferenceUSAResults
     puts "Going back to main home screen"
     capy_session.visit(HOME_URL)
     long_pause
+  end
+
+  def result_row_to_csv(row)
+    columns = row.all("td")
+
+    if columns.count > 0
+      # columns[0] is a checkbox
+      first = columns[1].text
+      last = columns[2].text
+      address = columns[3].text
+      city_state = columns[4].text
+      zip = columns[5].text
+      phone = columns[6].text
+
+      "#{first} #{last}, #{address}, #{city_state}, #{zip}, #{phone}"
+    else
+      "Could not find columns for row #{row.text}"
+    end
+
+
+  rescue => e
+    "Could not parse #{row.text} due to: #{e.message}"
   end
 end
