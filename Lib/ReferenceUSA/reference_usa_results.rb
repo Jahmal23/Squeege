@@ -35,7 +35,7 @@ class ReferenceUSAResults
       end
     end
 
-    brief_pause
+    flex_pause(2)
 
     num_pages = get_num_pages(capy_session)
 
@@ -48,7 +48,7 @@ class ReferenceUSAResults
         puts "Found the 'next' button.  Clicking for next page."
         next_button.click
 
-        brief_pause
+        flex_pause(2)
 
         return handle_row_results(capy_session, current_page + 1)
       else
@@ -74,7 +74,7 @@ class ReferenceUSAResults
   def reset_search(capy_session)
     puts "Going back to main home screen"
     capy_session.visit(HOME_URL)
-    long_pause
+    flex_pause(5)
   end
 
   def result_row_to_csv(row)

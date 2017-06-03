@@ -24,7 +24,7 @@ describe "Reference USA results page object" do
 
     SearchableNames.last_names.each do |name|
       puts "SEARCHING #{name}"
-      home.perform_search(capy_sess, name, "",  "Maryland")
+      home.perform_search(capy_sess, name, "Orlando",  "Florida")
 
       results = ReferenceUSAResults.new
 

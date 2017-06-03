@@ -1,4 +1,16 @@
 module Pausable
+
+  def flex_pause(seconds)
+    start = Time.now.utc
+
+    while true
+      if Time.now.utc > start + seconds
+        break
+      end
+    end
+
+  end
+
   def brief_pause
     start = Time.now.utc
 
