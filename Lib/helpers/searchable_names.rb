@@ -1,51 +1,54 @@
 class SearchableNames
   def self.last_names
-    %w(Gonçalves
-       Silva
-       Santos
-       Teixeira
-       Oliveira
-       Mora
-       Lima
-       Carvalho
-       Ferreira
-       Pereira
-       Andrade
-       Costa
-       Gomes
-       Araújo
-       Martins
-       Melo
-       Vieira
-       Ribeiro
-       Soares
-       Rocha
-       Freitas
-       Teixeira
-       Machado
-       Morais
-       Moreira
-       Neto
-       Pinto
-       Cunha
-       Silveira
-       Conceicao
-       Brito
-       Fonseca
-       Coelho
-       Medeiros
-       Nogueira
-       Pinheiro
-       Matos
-       Macedo
-       Siqueira
-       Bezerra
-       Figueiredo
-       Braga
-       Correira
-       Abreu
-       Mota
-       Batista
-       Moura)
+    %w(Almeida
+      Alsina
+      Alves
+      Amado
+      Andrade
+      Azevedo
+      Baia
+      Barbosa
+      Braga
+      Cabreira
+      Caetano
+      Cardoso
+      Carvalho
+      Coelho
+      Conceicao
+      Cunha
+      Da Costa
+      Da Silva
+      D'Almeida
+      De Carvalho
+      De Freitas
+      De Oliveira
+      De Paulo
+      De Sousa
+      De Souza
+      Dos Santos
+      Freitas
+      Guimaraes
+      Joao
+      Magalhaes
+      Martins
+      Medeiros
+      Morais
+      Moreira
+      Nascimento
+      Nogueira
+      Oliveira
+      Paixao
+      Pereira
+      Pinheiro
+      Pinto
+      Ribeiro
+      Rocha
+      Salgueiro
+      Sardinha
+      Simoes
+      Siqueira
+      Souza
+      Teixeira
+      Vieira)
   end
 end
