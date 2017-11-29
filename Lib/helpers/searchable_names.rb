@@ -16,16 +16,16 @@ class SearchableNames
       Coelho
       Conceicao
       Cunha
-      Da Costa
-      Da Silva
+      DaCosta
+      DaSilva
       D'Almeida
-      De Carvalho
-      De Freitas
-      De Oliveira
-      De Paulo
-      De Sousa
-      De Souza
-      Dos Santos
+      DeCarvalho
+      DeFreitas
+      DeOliveira
+      DePaulo
+      DeSousa
+      DeSouza
+      DosSantos
       Freitas
       Guimaraes
       Joao
