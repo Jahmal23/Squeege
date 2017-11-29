@@ -8,3 +8,4 @@ gem 'poltergeist'
 gem 'selenium-webdriver', '2.53.4'
 gem 'byebug'
 gem 'launchy'
+gem 'capybara-screenshot', :group => :test

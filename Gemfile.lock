@@ -11,6 +11,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-screenshot (1.0.17)
+      capybara (>= 1.0, < 3)
+      launchy
     childprocess (0.6.3)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
@@ -73,6 +76,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  capybara-screenshot
   launchy
   nokogiri (= 1.6.7.2)
   poltergeist
@@ -81,4 +85,4 @@ DEPENDENCIES
   selenium-webdriver (= 2.53.4)
 
 BUNDLED WITH
-   1.14.6
+   1.15.3

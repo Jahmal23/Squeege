@@ -3,10 +3,10 @@ require_relative '../helpers/pauseable'
 class ReferenceUSATermsConditions
   include Pausable
 
-  BASE_URL = "http://www.referenceusa.com/?".freeze
+  BASE_URL = "TermsAndConditions".freeze
 
   def accept_terms_and_conditions(capy_session)
-    unless capy_session.current_url == BASE_URL
+    unless capy_session.current_url.include? BASE_URL
       fail "Unexpected starting url #{capy_session.current_url} for terms and conditions"
     end
 

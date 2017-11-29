@@ -12,6 +12,6 @@ describe "Reference USA login object" do
 
     current_url = login.perform_login(capy_sess, "22400011777915")
 
-    expect(current_url).to eq("http://www.referenceusa.com/?" )
+    expect(current_url).to include("TermsAndConditions" )
   end
 end

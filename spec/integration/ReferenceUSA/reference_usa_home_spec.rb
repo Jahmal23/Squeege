@@ -14,6 +14,7 @@ describe "Reference USA home page object" do
 
     login.perform_login(capy_sess, "22400011777915")
 
+
     terms_conditions = ReferenceUSATermsConditions.new
 
     terms_conditions.accept_terms_and_conditions(capy_sess)
@@ -22,7 +23,7 @@ describe "Reference USA home page object" do
 
     current_url = home.perform_search(capy_sess, "Oliveira", "Marietta",  "Georgia")
 
-    expect(current_url.include?("http://www.referenceusa.com/UsWhitePages/Result/")).to be true
+    expect(current_url.include? "http://www.referenceusa.com/UsWhitePages/Result/" ).to be true
   end
 
 end

@@ -17,6 +17,7 @@ class ReferenceUSALogin
 
     capy_session.visit BASE_URL
 
+
     long_pause
 
 
@@ -34,11 +35,14 @@ class ReferenceUSALogin
 
     # force a redirect to the desired page since looking
     # for the correct hyperlink proved challenging
-    capy_session.visit REDIRECT_URL
+
+    # seems to be redirecting properly on it's own now.
+    # capy_session.visit REDIRECT_URL
 
     long_pause
 
     capy_session.current_url
+
   end
 
 end
