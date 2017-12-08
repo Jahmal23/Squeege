@@ -9,26 +9,53 @@ require_relative '../../../Lib/helpers/searchable_names'
 require_relative '../../../Lib/session_boss'
 
 describe "Reference USA results page object" do
-  let(:capy_sess) { SessionBoss.new.capy_session }
+
+  before do
+    @capy_sess = SessionBoss.new.capy_session
+    @retries_left = 10
+   end
 
   it "should comb through the results" do
     login = ReferenceUSALogin.new
 
-    login.perform_login(capy_sess, "22400008565125")  # "22400008565125"
+    login.perform_login(@capy_sess, "22400008565125")  # "22400008565125"
 
     terms_conditions = ReferenceUSATermsConditions.new
 
-    terms_conditions.accept_terms_and_conditions(capy_sess)
+    terms_conditions.accept_terms_and_conditions(@capy_sess)
 
     home = ReferenceUSAHome.new
 
-    SearchableNames.last_names.each do |name|
-      puts "SEARCHING #{name}"
-      home.perform_search(capy_sess, name, "Orlando",  "Florida")
+    retrying = false
 
-      results = ReferenceUSAResults.new
+    SearchableNames.angolan_last_names.each do |name|
 
-      results.scrape_results(capy_sess)
+      if @retries_left < 0
+        puts "TOO MANY ERRORS ENCOUNTERED TO CONTINUE. HOPE YOU FIGURE IT OUT."
+        break
+      end
+
+      begin
+        if retrying && @retries_left > 0
+          puts "Trying to reset and recover...."
+          home.reset_to_home_page(@capy_sess)
+        end
+
+        puts "SEARCHING #{name}"
+
+        home.perform_search(@capy_sess, name, "",  "Louisiana")
+
+        results = ReferenceUSAResults.new
+
+        results.scrape_results(@capy_sess)
+
+        retrying = false
+      rescue => e
+        puts "FAILED TO SEARCH #{name} due to: #{e.message}"
+        @capy_sess.save_screenshot
+        @retries_left = @retries_left - 1
+        retrying = true
+      end
     end
   end
 end

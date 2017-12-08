@@ -8,6 +8,12 @@ class ReferenceUSAHome
   SEARCH_URL = "http://www.referenceusa.com/UsWhitePages/Search/Quick/".freeze
   BASE_URL = "http://www.referenceusa.com/Home/Home".freeze
 
+
+  def reset_to_home_page(capy_session)
+    capy_session.visit(BASE_URL)
+    flex_pause(5)
+  end
+
   # At this point we are assumed to be logged in with a valid session
   def perform_search(capy_session, name, city, state)
 
