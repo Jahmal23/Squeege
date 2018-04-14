@@ -15,7 +15,7 @@ class ReferenceUSAHome
   end
 
   # At this point we are assumed to be logged in with a valid session
-  def perform_search(capy_session, name, city, state)
+  def perform_search(capy_session, first_name, last_name, city, state)
 
     unless capy_session.current_url == BASE_URL
       fail "Unexpected starting url #{capy_session.current_url} for home page"
@@ -28,7 +28,8 @@ class ReferenceUSAHome
     puts "Main Ref Usa search page loaded.  Filling in person info."
 
 
-    capy_session.fill_in 'lastName', with: name
+    capy_session.fill_in 'firstName', with: first_name
+    capy_session.fill_in 'lastName', with: last_name
     capy_session.fill_in 'city', with: city
     capy_session.select(state, from: 'stateProvince')
 

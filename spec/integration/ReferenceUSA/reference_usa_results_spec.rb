@@ -43,7 +43,7 @@ describe "Reference USA results page object" do
 
         puts "SEARCHING #{name}"
 
-        home.perform_search(@capy_sess, name, "",  "Louisiana")
+        home.perform_search(@capy_sess, "", name, "",  "Louisiana")
 
         results = ReferenceUSAResults.new
 

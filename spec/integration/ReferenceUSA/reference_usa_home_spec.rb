@@ -21,7 +21,7 @@ describe "Reference USA home page object" do
 
     home = ReferenceUSAHome.new
 
-    current_url = home.perform_search(capy_sess, "Oliveira", "Marietta",  "Georgia")
+    current_url = home.perform_search(capy_sess,"", "Oliveira", "Marietta",  "Georgia")
 
     expect(current_url.include? "http://www.referenceusa.com/UsWhitePages/Result/" ).to be true
   end
