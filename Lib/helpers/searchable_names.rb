@@ -165,4 +165,55 @@ class SearchableNames
         Custodio
         Danny)
   end
+
+  def self.female_brazilian_first_names
+    %w(
+        Gabriela
+        Fernanda
+        Júlia
+        Beatriz
+        Mariana
+        Larissa
+        camila
+        leticia
+        Juliana
+        Margarida
+        Marinela
+        Natália
+        Thais
+        vitoria
+        Rafaela
+        Luana
+        Bruna
+        Isabela
+        Carolina
+        Aline
+        giovanna
+        Victória
+        daniela
+        Marcela
+        Andressa
+        Eduarda
+        Raissa
+        Nathalia
+        Nayara
+        lara
+        Cristina
+        Michele
+        Yasmin
+        Flávia
+        clara
+        viviane
+        Patrícia
+        Gabi
+        camilla
+        marcella
+        Renata
+        Marcia
+        Adriana
+        Tania
+        Sonia
+        Lucia
+        Luciana)
+  end
 end
