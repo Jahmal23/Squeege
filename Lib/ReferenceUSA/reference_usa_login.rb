@@ -17,9 +17,7 @@ class ReferenceUSALogin
 
     capy_session.visit BASE_URL
 
-
-    long_pause
-
+    brief_pause
 
     puts "Base page loaded. Adding in library card and logging in"
     capy_session.fill_in "barcode", with: ''
@@ -29,7 +27,7 @@ class ReferenceUSALogin
 
     capy_session.click_button "Log In"
 
-    long_pause
+    brief_pause
 
     puts "Logged in. Attempting direct redirect to Ref USA"
 
@@ -39,7 +37,7 @@ class ReferenceUSALogin
     # seems to be redirecting properly on it's own now.
     # capy_session.visit REDIRECT_URL
 
-    long_pause
+    brief_pause
 
     capy_session.current_url
 

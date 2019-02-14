@@ -18,7 +18,7 @@ describe "Reference USA results page object" do
   it "should comb through the results" do
     login = ReferenceUSALogin.new
 
-    login.perform_login(@capy_sess, "22400008565125")  # "22400008565125"
+    login.perform_login(@capy_sess, "22400008565125")
 
     terms_conditions = ReferenceUSATermsConditions.new
 
@@ -28,7 +28,7 @@ describe "Reference USA results page object" do
 
     retrying = false
 
-    SearchableNames.angolan_last_names.each do |name|
+    SearchableNames.portugual[301..325].each do |name|
 
       if @retries_left < 0
         puts "TOO MANY ERRORS ENCOUNTERED TO CONTINUE. HOPE YOU FIGURE IT OUT."
@@ -43,7 +43,7 @@ describe "Reference USA results page object" do
 
         puts "SEARCHING #{name}"
 
-        home.perform_search(@capy_sess, "", name, "",  "Louisiana")
+        home.perform_search(@capy_sess, "", name, "Brimfield",  "Massachusetts")
 
         results = ReferenceUSAResults.new
 

@@ -93,8 +93,6 @@ class ReferenceUSAResults
     else
       "Could not find columns for row #{row.text}"
     end
-
-
   rescue => e
     "Could not parse #{row.text} due to: #{e.message}"
   end
