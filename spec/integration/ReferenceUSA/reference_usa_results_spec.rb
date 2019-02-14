@@ -16,6 +16,7 @@ describe "Reference USA results page object" do
    end
 
   it "should comb through the results" do
+
     login = ReferenceUSALogin.new
 
     login.perform_login(@capy_sess, "22400008565125")
@@ -28,7 +29,7 @@ describe "Reference USA results page object" do
 
     retrying = false
 
-    SearchableNames.portugual[301..325].each do |name|
+    SearchableNames.portugual[425..-1].each do |name|
 
       if @retries_left < 0
         puts "TOO MANY ERRORS ENCOUNTERED TO CONTINUE. HOPE YOU FIGURE IT OUT."

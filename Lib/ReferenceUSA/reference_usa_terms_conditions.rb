@@ -14,8 +14,6 @@ class ReferenceUSATermsConditions
 
     # This redirection is slooooowwww
     super_long_pause
-    super_long_pause
-
 
     capy_session.find_by_id("chkAgree").set(true)
 
