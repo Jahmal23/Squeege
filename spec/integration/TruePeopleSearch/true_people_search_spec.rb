@@ -15,6 +15,9 @@ describe "True People Search Spec" do
 
   it "should comb through the results" do
 
+    city = "Brimfield"
+    state = "MA"
+
     home = TpsHome.new
 
     retrying = false
@@ -34,9 +37,9 @@ describe "True People Search Spec" do
 
         puts "SEARCHING #{name}"
 
-        home.perform_search(@capy_sess, "", name, "Brimfield",  "MA")
+        home.perform_search(@capy_sess, "", name, city,  state)
 
-        TpsResults.new.scrape_results(@capy_sess)
+        TpsResults.new(city, state).scrape_results(@capy_sess)
 
         retrying = false
       rescue => e

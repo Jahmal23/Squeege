@@ -1,10 +1,21 @@
 require_relative '../helpers/pauseable'
+require_relative 'tps_result_detail'
+
 
 class TpsResults
   include Pausable
 
   BASE_URL = "https://www.truepeoplesearch.com/results?".freeze
   HOME_URL = "https://www.truepeoplesearch.com".freeze
+
+  attr_reader :city
+  attr_reader :state
+
+  def initialize(city, state)
+    @city = city
+    @state = state
+  end
+
 
   def scrape_results(capy_session)
 
@@ -30,17 +41,24 @@ class TpsResults
     # write out the results
     open('results.csv', 'a') do |f|
       index = 0
-      view_detail_links.each do |row|
-        puts row.text unless index == 0
+      view_detail_links.each do |detail_link|
 
+        detail_link.click
 
+        flex_pause(3)
 
+        byebug
 
-        f.puts result_row_to_csv(row) unless index == 0 # skip the table header row
+        address_detail = TpsResultDetail.new(city,state).get_address_detail(capy_session)
+
+        unless address_detail.nil?
+          puts "Found #{address_detail}!"
+          f.puts address_detail unless address_detail.nil?
+        end
+
+        flex_pause(2)
+
         index += 1
-
-
-
       end
     end
 
