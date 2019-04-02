@@ -15,14 +15,14 @@ describe "True People Search Spec" do
 
   it "should comb through the results" do
 
-    city = "Brimfield"
-    state = "MA"
+    city = "Orlando"
+    state = "FL"
 
     home = TpsHome.new
 
     retrying = false
 
-    SearchableNames.portugual[0..3].each do |name|
+    SearchableNames.test_names.each do |name|
 
       if @retries_left < 0
         puts "TOO MANY ERRORS ENCOUNTERED TO CONTINUE. HOPE YOU FIGURE IT OUT."
@@ -39,7 +39,7 @@ describe "True People Search Spec" do
 
         home.perform_search(@capy_sess, "", name, city,  state)
 
-        TpsResults.new(city, state).scrape_results(@capy_sess)
+        TpsResults.new(name, city, state).scrape_results(@capy_sess)
 
         retrying = false
       rescue => e

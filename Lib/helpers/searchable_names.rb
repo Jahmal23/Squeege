@@ -1,4 +1,9 @@
 class SearchableNames
+
+  def self.test_names
+    %w(Carioca)
+  end
+
   def self.portugual
     %w( Abreu
         Acosta

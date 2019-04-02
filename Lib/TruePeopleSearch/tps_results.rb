@@ -10,10 +10,16 @@ class TpsResults
 
   attr_reader :city
   attr_reader :state
+  attr_reader :name
 
-  def initialize(city, state)
+  attr_reader :initial_results_page
+  attr_reader :found_addresses
+
+  def initialize(name, city, state)
+    @name = name
     @city = city
     @state = state
+    @found_addresses = []
   end
 
 
@@ -26,6 +32,8 @@ class TpsResults
       return
     end
 
+    @initial_results_page = capy_session.current_url
+
     handle_row_results(capy_session)
   end
 
@@ -34,29 +42,33 @@ class TpsResults
   def handle_row_results(capy_session, current_page = 1)
     puts "Grabbing results for page #{current_page}"
 
-    view_detail_links = capy_session.all(:xpath, './/a[@class="btn btn-success btn-lg detail-link shadow-form"]')
+    all_detail_links = capy_session.all(:xpath, './/a[@class="btn btn-success btn-lg detail-link shadow-form"]')
 
-    previously_viewed = []
+    uniq_detail_links = all_detail_links.map{|x| x[:href] }.compact.uniq
 
     # write out the results
     open('results.csv', 'a') do |f|
       index = 0
-      view_detail_links.each do |detail_link|
-
-        detail_link.click
+      uniq_detail_links.each do |detail_link|
 
         flex_pause(3)
 
-        byebug
+        capy_session.visit(detail_link)
+
+        flex_pause(3)
 
         address_detail = TpsResultDetail.new(city,state).get_address_detail(capy_session)
 
-        unless address_detail.nil?
+        if is_valid_new_address?(address_detail)
           puts "Found #{address_detail}!"
-          f.puts address_detail unless address_detail.nil?
+          @found_addresses << address_detail
+          f.puts format_file_entry(address_detail)
         end
 
-        flex_pause(2)
+        flex_pause(3)
+
+        # `pop back from the detail view to the main list of results
+        capy_session.visit(@initial_results_page)
 
         index += 1
       end
@@ -89,6 +101,12 @@ class TpsResults
   end
 
 
+  def format_file_entry(address)
+    "#{@name}, #{address}"
+  end
+  def is_valid_new_address?(address)
+    true unless (address.nil? || @found_addresses.include?(address))
+  end
 
   def get_num_pages(capy_session)
     num_pages = 1

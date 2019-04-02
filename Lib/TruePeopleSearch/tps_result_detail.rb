@@ -2,6 +2,7 @@ require_relative '../helpers/pauseable'
 
 class TpsResultDetail
   include Pausable
+
   attr_reader :city
   attr_reader :state
 
