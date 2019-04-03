@@ -15,8 +15,8 @@ describe "True People Search Spec" do
 
   it "should comb through the results" do
 
-    city = "Orlando"
-    state = "FL"
+    city = "Ludlow"
+    state = "MA"
 
     home = TpsHome.new
 

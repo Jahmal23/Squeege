@@ -1,7 +1,7 @@
 class SearchableNames
 
   def self.test_names
-    %w(Carioca)
+    %w(Rua)
   end
 
   def self.portugual

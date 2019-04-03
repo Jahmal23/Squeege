@@ -14,7 +14,7 @@ class TpsResultDetail
   def get_address_detail(capy_session)
     address_element = capy_session.first(:xpath, './/a[@data-link-to-more="address"]')
 
-    address = address_element.text
+    address = address_element.nil? ? "" : address_element.text
 
     is_valid_address?(address) ? address : nil
   end
