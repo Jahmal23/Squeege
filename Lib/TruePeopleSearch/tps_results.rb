@@ -43,6 +43,30 @@ class TpsResults
 
     uniq_detail_links = all_detail_links.map{|x| x[:href] }.compact.uniq
 
+
+    hit_links = []
+
+    all_detail_cards = capy_session.all(:xpath, './/div[@class="card card-block shadow-form card-summary"]')
+
+
+    all_detail_cards.each do |detail_card|
+
+      detail_card.all('span').each do |span|
+
+        if span.text == "#{@city}, #{@state}"
+
+          hit_links << detail_card['data-detail-link']
+
+        end
+
+      end
+    end
+
+
+    byebug
+
+
+
     # write out the results
     open('results.csv', 'a') do |f|
       uniq_detail_links.each do |detail_link|
