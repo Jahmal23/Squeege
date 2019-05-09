@@ -39,45 +39,20 @@ class TpsResults
   def handle_row_results(capy_session, current_page = 1)
     puts "Grabbing results for page #{current_page}"
 
-    all_detail_links = capy_session.all(:xpath, './/a[@class="btn btn-success btn-lg detail-link shadow-form"]')
-
-    uniq_detail_links = all_detail_links.map{|x| x[:href] }.compact.uniq
-
-
-    hit_links = []
-
-    all_detail_cards = capy_session.all(:xpath, './/div[@class="card card-block shadow-form card-summary"]')
-
-
-    all_detail_cards.each do |detail_card|
-
-      detail_card.all('span').each do |span|
-
-        if span.text == "#{@city}, #{@state}"
-
-          hit_links << detail_card['data-detail-link']
-
-        end
-
-      end
-    end
-
-
-    byebug
+    direct_hit_links = grab_all_direct_hits(capy_session)
 
 
 
     # write out the results
     open('results.csv', 'a') do |f|
-      uniq_detail_links.each do |detail_link|
+      direct_hit_links.each do |detail_link|
 
-        capy_session.visit(detail_link)
+        capy_session.visit(build_detail_url(detail_link))
 
         if is_detected_as_robot?(capy_session.current_url)
           puts "WE'VE BEEN BUSTED!!! ABORTING!"
           break
         end
-
 
         address_detail = TpsResultDetail.new(city,state).get_address_detail(capy_session)
 
@@ -89,10 +64,11 @@ class TpsResults
 
         flex_pause(8)
 
-        # `pop back from the detail view to the main list of results
-        capy_session.visit(@initial_results_page)
       end
     end
+
+    # `pop back from the detail view to the main list of results
+    capy_session.visit(@initial_results_page)
 
     next_page_link = capy_session.find_by_id("btnNextPage") rescue nil
 
@@ -110,6 +86,35 @@ class TpsResults
       puts "No next button found, all done."
       return #nothing to search, end the recursion
     end
+  end
+
+  def grab_all_direct_hits(capy_session)
+    direct_hit_links = []
+
+    all_detail_cards = capy_session.all(:xpath, './/div[@class="card card-block shadow-form card-summary"]')
+
+    all_detail_cards.each do |detail_card|
+
+      detail_card.all('span').each do |span|
+
+        if is_direct_hit?(span.text)
+
+          direct_hit_links << detail_card['data-detail-link']
+
+        end
+      end
+    end
+
+    direct_hit_links
+  end
+
+  # true people search likes to include nearby states etc ugh!
+  def is_direct_hit?(element_content)
+    element_content == "#{@city}, #{@state}"
+  end
+
+  def build_detail_url(base_path)
+    "#{HOME_URL}#{base_path}"
   end
 
   def is_detected_as_robot?(url)
