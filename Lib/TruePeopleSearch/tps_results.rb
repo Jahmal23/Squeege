@@ -39,9 +39,9 @@ class TpsResults
   def handle_row_results(capy_session, current_page = 1)
     puts "Grabbing results for page #{current_page}"
 
+    rand_pause
+
     direct_hit_links = grab_all_direct_hits(capy_session)
-
-
 
     # write out the results
     open('results.csv', 'a') do |f|
@@ -62,7 +62,7 @@ class TpsResults
           f.puts format_file_entry(address_detail)
         end
 
-        flex_pause(8)
+        rand_pause
 
       end
     end
@@ -78,7 +78,7 @@ class TpsResults
       @initial_results_page = next_page_link[:href]
       capy_session.visit(@initial_results_page)
 
-      flex_pause(8)
+      rand_pause
 
       # recursively check the next page
       handle_row_results(capy_session, current_page + 1)
@@ -133,6 +133,6 @@ class TpsResults
   def reset_search(capy_session)
     puts "Going back to main home screen"
     capy_session.visit(HOME_URL)
-    flex_pause(5)
+    rand_pause
   end
 end
