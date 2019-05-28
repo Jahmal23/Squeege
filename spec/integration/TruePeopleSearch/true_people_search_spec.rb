@@ -15,14 +15,14 @@ describe "True People Search Spec" do
 
   it "should comb through the results" do
 
-    city = "Ludlow"
+    city = "Brimfield"
     state = "MA"
 
     home = TpsHome.new
 
     retrying = false
 
-    SearchableNames.test_names.each do |name|
+    SearchableNames.brazilian_last_names[49..49].each do |name|
 
       if @retries_left < 0
         puts "TOO MANY ERRORS ENCOUNTERED TO CONTINUE. HOPE YOU FIGURE IT OUT."

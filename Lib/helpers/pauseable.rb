@@ -1,5 +1,9 @@
 module Pausable
 
+  def rand_pause
+    flex_pause(rand(20))
+  end
+
   def flex_pause(seconds)
     start = Time.now.utc
 

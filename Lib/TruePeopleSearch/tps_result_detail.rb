@@ -13,10 +13,13 @@ class TpsResultDetail
 
   def get_address_detail(capy_session)
     address_element = capy_session.first(:xpath, './/a[@data-link-to-more="address"]')
-
     address = address_element.nil? ? "" : address_element.text
 
-    is_valid_address?(address) ? address : nil
+    phone_element = capy_session.first(:xpath, './/a[@data-link-to-more="phone"]')
+    phone = phone_element.nil? ? "n/a" : phone_element.text
+
+    return nil unless is_valid_address?(address)
+    "#{address}, #{phone}"
   end
 
   # true people search will return results from other cities!
