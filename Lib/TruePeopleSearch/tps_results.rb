@@ -39,8 +39,6 @@ class TpsResults
   def handle_row_results(capy_session, current_page = 1)
     puts "Grabbing results for page #{current_page}"
 
-    rand_pause
-
     direct_hit_links = grab_all_direct_hits(capy_session)
 
     # write out the results
@@ -62,8 +60,6 @@ class TpsResults
           f.puts format_file_entry(address_detail)
         end
 
-        rand_pause
-
       end
     end
 
@@ -77,8 +73,6 @@ class TpsResults
 
       @initial_results_page = next_page_link[:href]
       capy_session.visit(@initial_results_page)
-
-      rand_pause
 
       # recursively check the next page
       handle_row_results(capy_session, current_page + 1)
@@ -129,10 +123,9 @@ class TpsResults
     true unless (address.nil? || @found_addresses.include?(address))
   end
 
-
   def reset_search(capy_session)
     puts "Going back to main home screen"
-    capy_session.visit(HOME_URL)
     rand_pause
+    capy_session.visit(HOME_URL)
   end
 end

@@ -4,9 +4,7 @@
     <list default="true" id="77d96c80-2665-4b07-ac26-1e25ca950095" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_home.rb" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_home.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_result_detail.rb" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_result_detail.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_results.rb" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_results.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/helpers/pauseable.rb" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/helpers/pauseable.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spec/integration/TruePeopleSearch/true_people_search_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/integration/TruePeopleSearch/true_people_search_spec.rb" afterDir="false" />
     </list>
     <ignored path="Squeegee.iws" />
@@ -40,16 +38,7 @@
         <entry file="file://$PROJECT_DIR$/Lib/helpers/pauseable.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="16" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/integration/ReferenceUSA/reference_usa_login_spec.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -75,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lib/TruePeopleSearch/tps_home.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+            <state relative-caret-position="390">
+              <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -84,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/integration/TruePeopleSearch/true_people_search_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="491">
+              <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -99,20 +88,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Lib/TruePeopleSearch/tps_results.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+            <state relative-caret-position="186">
+              <caret line="109" column="10" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lib/helpers/searchable_names.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="7200">
+              <caret line="480" column="7" selection-start-line="480" selection-start-column="7" selection-end-line="480" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -143,9 +132,12 @@
       <find>for results page</find>
       <find>within</find>
       <find>rand(10)</find>
-      <find>rand</find>
       <find>flex</find>
       <find>test</find>
+      <find>perfo</find>
+      <find>reset_search</find>
+      <find>Gui</find>
+      <find>rand</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -182,17 +174,16 @@
         <option value="$PROJECT_DIR$/Lib/ReferenceUSA/reference_usa_home.rb" />
         <option value="$PROJECT_DIR$/results.csv" />
         <option value="$PROJECT_DIR$/Lib/helpers/pauseable.rb" />
-        <option value="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_home.rb" />
-        <option value="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_results.rb" />
-        <option value="$PROJECT_DIR$/spec/integration/TruePeopleSearch/true_people_search_spec.rb" />
         <option value="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_result_detail.rb" />
         <option value="$PROJECT_DIR$/Lib/helpers/searchable_names.rb" />
+        <option value="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_home.rb" />
+        <option value="$PROJECT_DIR$/spec/integration/TruePeopleSearch/true_people_search_spec.rb" />
+        <option value="$PROJECT_DIR$/Lib/TruePeopleSearch/tps_results.rb" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1547" />
-    <option name="y" value="307" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="734" />
   </component>
@@ -223,7 +214,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,6 +266,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -398,11 +389,14 @@
       <workItem from="1557679278040" duration="416000" />
       <workItem from="1558093127041" duration="1893000" />
       <workItem from="1558574106865" duration="1628000" />
+      <workItem from="1558880712223" duration="184000" />
+      <workItem from="1558881939269" duration="4897000" />
+      <workItem from="1559003785163" duration="69000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94273000" />
+    <option name="totallyTimeSpent" value="99423000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -414,10 +408,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1547" y="307" width="1280" height="734" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="734" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23828755" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25040388" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -537,17 +531,20 @@
     <entry file="file://$PROJECT_DIR$/results.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/helpers/pauseable.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/integration/ReferenceUSA/reference_usa_login_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capybara-201905272006172320737539.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lib/helpers/pauseable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -565,24 +562,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/integration/ReferenceUSA/reference_usa_home_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Lib/TruePeopleSearch/tps_home.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/TruePeopleSearch/tps_results.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+        <state relative-caret-position="390">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -593,17 +576,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/integration/TruePeopleSearch/true_people_search_spec.rb">
+    <entry file="file://$PROJECT_DIR$/Lib/helpers/searchable_names.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="7200">
+          <caret line="480" column="7" selection-start-line="480" selection-start-column="7" selection-end-line="480" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/helpers/searchable_names.rb">
+    <entry file="file://$PROJECT_DIR$/spec/integration/ReferenceUSA/reference_usa_home_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/integration/TruePeopleSearch/true_people_search_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lib/TruePeopleSearch/tps_results.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="109" column="10" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
         </state>
       </provider>
     </entry>
